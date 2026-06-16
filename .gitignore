@@ -1,0 +1,4 @@
+.codex/
+.vs/
+__pycache__/
+*.pyc
