@@ -14,6 +14,12 @@
 
 本机运行：Windows，Python 3.12.14。基础与可选测试依赖精确版本见 `requirements-lock.txt`。测试产生的绝对临时路径及本机环境日志不随开源版本发布。
 
+## 远程补验
+
+[GitHub Actions run 41301828210](https://github.com/monsterduan/codex-project/actions/runs/41301828210) 对代码提交 `8f3f9fab429e2592b1b1990581ec5cc177e0be10` 的两个任务均已完成并成功：Windows/Python 3.12 与 Ubuntu/Python 3.12。依赖安装、回归与 CPU smoke test、评测输出和产物上传步骤均成功。这补齐了首版 Linux 软件回归，不扩展为真实模型或设备验收。
+
+本机还构建了 wheel 安装包并检查其归档，确认包含网页、评测样例及 CSV 示例；没有把文档存在等同于运行效果。
+
 ## 指标口径
 
 检索 hit@3 和 MRR@3 仅检查预期来源是否进入返回片段，不评价回答语义正确性。20 条题与知识资料一起编写，存在明显开发集偏差。它们用于检测代码回归，不能代表真实领域问答能力。
@@ -28,6 +34,6 @@
 - 知识库在启动时载入，不是实时监控数据库；多用户隔离、任务队列、持久索引未实现。
 - 实验身份、数据清单和 measured 标记由输入方提供；目前不能独立验证远端采集真实性。
 - 当前依赖在导入 LangGraph 时出现一条上游 `LangChainPendingDeprecationWarning`，测试不失败；项目未使用其 checkpoint 持久化功能。
-- GitHub Actions 配置存在不等于远程已跑通；远程状态以仓库 Actions 页面为准。本机仅验证 Windows，Linux 验收待 CI 实际运行。
+- GitHub Actions 配置存在不等于远程已跑通；首版实际通过记录见上方远程补验，后续提交仍以各自 Actions 结果为准。
 
 后续验收按 [13 周路线](roadmap-13-weeks.md) 逐项补齐，不能将计划内容提前写成履历成绩。

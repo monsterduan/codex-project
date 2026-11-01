@@ -20,6 +20,13 @@
 
 首版验证环境为 Python 3.12；其他 Python 版本尚未验收。以下命令在**本目录**执行。
 
+当前公开位置是 `monsterduan/codex-project` 的独立目录与 `codex/fieldvision-ai-lab` 分支，见 [PR #1](https://github.com/monsterduan/codex-project/pull/1)。获取首版：
+
+```bash
+git clone --branch codex/fieldvision-ai-lab --single-branch https://github.com/monsterduan/codex-project.git
+cd codex-project/fieldvision-ai-lab
+```
+
 ```bash
 python -m venv .venv
 # Windows PowerShell
