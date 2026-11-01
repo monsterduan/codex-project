@@ -1,0 +1,22 @@
+[
+  {"id":"metrics-01","question":"为什么不能把不同 epoch 的 precision 和 mAP 最大值拼在一起？","expected_sources":["experiment_metrics.md"]},
+  {"id":"metrics-02","question":"mAP50-95 从 0.60 到 0.63 应怎样表述差值？","expected_sources":["experiment_metrics.md"]},
+  {"id":"metrics-03","question":"训练日志最佳轮次能证明独立测试集成绩吗？","expected_sources":["experiment_metrics.md"]},
+  {"id":"comparison-01","question":"历史训练没有代码快照时应该如何标记版本？","expected_sources":["comparison_contract.md"]},
+  {"id":"comparison-02","question":"对照实验需要记录 seed、imgsz 和哪些哈希？","expected_sources":["comparison_contract.md"]},
+  {"id":"coordinate-01","question":"单应性矩阵至少需要多少组非共线对应点？","expected_sources":["coordinate_calibration.md"]},
+  {"id":"coordinate-02","question":"像素坐标转平面坐标能直接证明厘米级定位精度吗？","expected_sources":["coordinate_calibration.md"]},
+  {"id":"edge-01","question":"ONNX Runtime 的 session.run 耗时是端到端延迟吗？","expected_sources":["edge_latency.md"]},
+  {"id":"edge-02","question":"推理基准测试为什么需要预热并报告 p95？","expected_sources":["edge_latency.md"]},
+  {"id":"triage-01","question":"模型文件名一样但 SHA256 不同怎么处理？","expected_sources":["device_triage.md"]},
+  {"id":"triage-02","question":"80 摄氏度是所有 Jetson 的验收标准吗？","expected_sources":["device_triage.md","edge_latency.md"]},
+  {"id":"network-01","question":"对象存储键被覆盖后能还原每次识别图片吗？","expected_sources":["network_evidence.md"]},
+  {"id":"network-02","question":"前端成功显示图片能证明无线回传时延吗？","expected_sources":["network_evidence.md"]},
+  {"id":"rag-01","question":"引用格式正确是否代表模型回答有证据支持？","expected_sources":["rag_boundaries.md"]},
+  {"id":"rag-02","question":"词法检索和语义检索如何通过 RRF 融合？","expected_sources":["rag_boundaries.md"]},
+  {"id":"oos-01","question":"推荐北京最热门的五家火锅店","should_refuse":true},
+  {"id":"oos-02","question":"请预测明天股票涨停名单","should_refuse":true},
+  {"id":"oos-03","question":"唐朝第二位皇帝叫什么","should_refuse":true},
+  {"id":"oos-04","question":"帮我写一首关于月亮的诗歌","should_refuse":true},
+  {"id":"oos-05","question":"意大利足球联赛冠军是哪支球队","should_refuse":true}
+]

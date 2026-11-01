@@ -1,0 +1,11 @@
+{
+  "evidence_kind":"synthetic_demo",
+  "device":"example-edge-device",
+  "inference_ms":58,
+  "target_ms":40,
+  "temperature_c":84,
+  "free_memory_mb":380,
+  "dropped_frame_ratio":0.12,
+  "model_sha256":"demo-reported-model-b",
+  "expected_model_sha256":"demo-release-model-a"
+}

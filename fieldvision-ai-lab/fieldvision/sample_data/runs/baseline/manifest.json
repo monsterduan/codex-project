@@ -1,0 +1,9 @@
+{
+  "evidence_kind":"synthetic_demo",
+  "dataset_sha256":"demo-dataset-v1",
+  "split_sha256":"demo-split-a",
+  "model_config_sha256":"demo-baseline-model",
+  "code_revision":"demo-revision",
+  "seed":42,"imgsz":640,"epochs":3,"batch":8,"optimizer":"SGD",
+  "task":"detect","class_names":["demo_weed"],"device":"demo_cpu"
+}
