@@ -1,0 +1,45 @@
+name: FieldVision tests
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  tests:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python: ['3.12']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Find standalone or portfolio directory
+        shell: bash
+        run: |
+          if [ -f pyproject.toml ]; then
+            echo "PROJECT_DIR=." >> "$GITHUB_ENV"
+          else
+            echo "PROJECT_DIR=fieldvision-ai-lab" >> "$GITHUB_ENV"
+          fi
+      - name: Install validated dependency set
+        shell: bash
+        run: |
+          cd "$PROJECT_DIR"
+          python -m pip install -r requirements-lock.txt
+          python -m pip install --no-deps -e .
+      - name: Regression and real CPU adapter smoke test
+        shell: bash
+        run: |
+          cd "$PROJECT_DIR"
+          python -m pytest --junitxml=artifacts/tests.xml
+          python -m fieldvision.cli evaluate --output artifacts/baseline_eval.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: evidence-${{ matrix.os }}-${{ matrix.python }}
+          path: '**/artifacts/'
